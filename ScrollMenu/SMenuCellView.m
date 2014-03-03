@@ -14,15 +14,28 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        //Background Image View.
         self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 66)];
         self.backgroundImageView.contentMode = UIViewContentModeScaleToFill;
         [self addSubview:self.backgroundImageView];
+        
+        //Icon Image View.
+        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(19, 19, 27, 27)];
+        self.iconImageView.contentMode = UIViewContentModeScaleToFill;
+        [self addSubview:self.iconImageView];
+        
+        //Title
+        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(137, 21, 150, 22)];
+        self.titleLabel.textAlignment = NSTextAlignmentLeft;
+        self.titleLabel.textColor = [UIColor whiteColor];
+        self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:20];
+        [self addSubview:self.titleLabel];
     }
     return self;
 }
 
 
+//Custom drawing for test.
 - (void)drawTheCell:(CGContextRef)context{
     //// General Declarations
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();

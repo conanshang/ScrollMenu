@@ -11,5 +11,7 @@
 @interface SMenuCellView : UIView
 
 @property (nonatomic, retain) UIImageView *backgroundImageView;
+@property (nonatomic, retain) UIImageView *iconImageView;
+@property (nonatomic, retain) UILabel *titleLabel;
 
 @end

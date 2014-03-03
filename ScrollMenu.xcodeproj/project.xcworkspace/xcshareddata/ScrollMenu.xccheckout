@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>21AA53A0-13AB-40F7-9297-60147608C26F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ScrollMenu</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3B44046C-F135-4218-9507-94A2DCFA46A3</key>
+		<string>https://github.com/conanshang/ScrollMenu.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ScrollMenu.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3B44046C-F135-4218-9507-94A2DCFA46A3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/conanshang/ScrollMenu.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3B44046C-F135-4218-9507-94A2DCFA46A3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3B44046C-F135-4218-9507-94A2DCFA46A3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ScrollMenu</string>
+		</dict>
+	</array>
+</dict>
+</plist>

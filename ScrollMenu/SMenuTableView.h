@@ -1,5 +1,5 @@
 //
-//  SMenuCell.h
+//  SMenuTableView.h
 //  ScrollMenu
 //
 //  Created by conans on 3/2/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SMenuCell : UITableViewCell
+@interface SMenuTableView : UITableView
 
 @end
