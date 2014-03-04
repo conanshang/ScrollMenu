@@ -14,28 +14,55 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        //Background Image View.
-        self.backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 340, 66)];
-        self.backgroundImageView.contentMode = UIViewContentModeScaleToFill;
-        [self addSubview:self.backgroundImageView];
-        
-        //Icon Image View.
-        self.iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(19, 19, 27, 27)];
-        self.iconImageView.contentMode = UIViewContentModeScaleToFill;
-        [self addSubview:self.iconImageView];
-        
-        //Title
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(137, 21, 150, 22)];
-        self.titleLabel.textAlignment = NSTextAlignmentLeft;
-        self.titleLabel.textColor = [UIColor whiteColor];
-        self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:20];
-        [self addSubview:self.titleLabel];
+
     }
     return self;
 }
 
+- (id)initWithFrame:(CGRect)frame AndLevel:(NSInteger)level{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initialViewsByLevel:level];
+    }
+    return self;
+}
 
-//Custom drawing for test.
+- (void)initialViewsByLevel:(NSInteger)level{
+    CGRect backgroundImageViewRect;
+    CGRect iconImageViewRect;
+    CGRect titleLabelRect;
+    
+    switch (level) {
+        case 1:
+            backgroundImageViewRect = CGRectMake(0, 0, 340, 66);
+            iconImageViewRect = CGRectMake(19, 19, 27, 27);
+            titleLabelRect = CGRectMake(137, 21, 150, 22);
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    //Background Image View.
+    self.backgroundImageView = [[UIImageView alloc] initWithFrame:backgroundImageViewRect];
+    self.backgroundImageView.contentMode = UIViewContentModeScaleToFill;
+    [self addSubview:self.backgroundImageView];
+    
+    //Icon Image View.
+    self.iconImageView = [[UIImageView alloc] initWithFrame:iconImageViewRect];
+    self.iconImageView.contentMode = UIViewContentModeScaleToFill;
+    [self addSubview:self.iconImageView];
+    
+    //Title
+    self.titleLabel = [[UILabel alloc] initWithFrame:titleLabelRect];
+    self.titleLabel.textAlignment = NSTextAlignmentLeft;
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.font = [UIFont fontWithName:@"Helvetica-Light" size:20];
+    [self addSubview:self.titleLabel];
+}
+
+//Custom drawing for test. - No use.
 - (void)drawTheCell:(CGContextRef)context{
     //// General Declarations
     CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();

@@ -16,7 +16,7 @@
 - (id)initWithCoder:(NSCoder *)aDecoder{
     if ((self = [super initWithCoder:aDecoder])){
         self.contentSize = CGSizeMake(self.frame.size.width, 975);
-        //self.contentOffset = CGPointMake(0, 325);
+        self.contentOffset = CGPointMake(0, 325);
     }
     return self;
 }
@@ -26,12 +26,11 @@
     
     //check the top condition
     //check if the scroll view reached its top.. if so.. move it to center.. remember center is the start of the data repeating for 2nd time.
-    if( contentOffset.y<=0.0)
-    {
+    if( contentOffset.y<=0.0){
         contentOffset.y = self.contentSize.height/3.0f;
     }
-    else if( contentOffset.y >= ( self.contentSize.height - self.bounds.size.height) )//scrollview content offset reached bottom minus the height of the tableview
-    {
+    //scrollview content offset reached bottom minus the height of the tableview
+    else if( contentOffset.y >= ( self.contentSize.height - self.bounds.size.height)){
         //this scenario is same as the data repeating for 2nd time minus the height of the table view
         contentOffset.y = self.contentSize.height/3.0f- self.bounds.size.height;
     }

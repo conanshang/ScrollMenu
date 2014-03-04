@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F38049218C574B200264FE5 /* SLevel2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F38049118C574B200264FE5 /* SLevel2ViewController.m */; };
 		0F40E4C318C3F37300906364 /* panel_slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F40E4C218C3F37300906364 /* panel_slider.png */; };
 		0F46112B18C19887003A8AF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F46112A18C19887003A8AF7 /* Foundation.framework */; };
 		0F46112D18C19887003A8AF7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F46112C18C19887003A8AF7 /* CoreGraphics.framework */; };
@@ -15,7 +16,7 @@
 		0F46113718C19887003A8AF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46113618C19887003A8AF7 /* main.m */; };
 		0F46113B18C19887003A8AF7 /* SAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46113A18C19887003A8AF7 /* SAppDelegate.m */; };
 		0F46113E18C19887003A8AF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F46113C18C19887003A8AF7 /* Main.storyboard */; };
-		0F46114118C19887003A8AF7 /* SViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46114018C19887003A8AF7 /* SViewController.m */; };
+		0F46114118C19887003A8AF7 /* SLevel1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F46114018C19887003A8AF7 /* SLevel1ViewController.m */; };
 		0F46114318C19887003A8AF7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F46114218C19887003A8AF7 /* Images.xcassets */; };
 		0F46114A18C19887003A8AF7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F46114918C19887003A8AF7 /* XCTest.framework */; };
 		0F46114B18C19887003A8AF7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F46112A18C19887003A8AF7 /* Foundation.framework */; };
@@ -31,6 +32,7 @@
 		0F5571A118C31AEB00CA7A09 /* panel_yellow_a2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F55719E18C31AEB00CA7A09 /* panel_yellow_a2.png */; };
 		0F5571A418C3228400CA7A09 /* panel_slider_beagle.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5571A218C3228400CA7A09 /* panel_slider_beagle.png */; };
 		0F5571A518C3228400CA7A09 /* panel_slider_dino.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5571A318C3228400CA7A09 /* panel_slider_dino.png */; };
+		0F5F839A18C5592C004A6685 /* SViewControllerBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5F839918C5592C004A6685 /* SViewControllerBase.m */; };
 		0F64EEC318C401E200456A10 /* icon_info_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F64EEBE18C401E200456A10 /* icon_info_100.png */; };
 		0F64EEC418C401E200456A10 /* icon_misc_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F64EEBF18C401E200456A10 /* icon_misc_100.png */; };
 		0F64EEC518C401E200456A10 /* icon_oops_100.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F64EEC018C401E200456A10 /* icon_oops_100.png */; };
@@ -50,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F38049018C574B200264FE5 /* SLevel2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLevel2ViewController.h; sourceTree = "<group>"; };
+		0F38049118C574B200264FE5 /* SLevel2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLevel2ViewController.m; sourceTree = "<group>"; };
 		0F40E4C218C3F37300906364 /* panel_slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panel_slider.png; sourceTree = "<group>"; };
 		0F46112718C19887003A8AF7 /* ScrollMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F46112A18C19887003A8AF7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,8 +66,8 @@
 		0F46113918C19887003A8AF7 /* SAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SAppDelegate.h; sourceTree = "<group>"; };
 		0F46113A18C19887003A8AF7 /* SAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SAppDelegate.m; sourceTree = "<group>"; };
 		0F46113D18C19887003A8AF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0F46113F18C19887003A8AF7 /* SViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SViewController.h; sourceTree = "<group>"; };
-		0F46114018C19887003A8AF7 /* SViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SViewController.m; sourceTree = "<group>"; };
+		0F46113F18C19887003A8AF7 /* SLevel1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SLevel1ViewController.h; sourceTree = "<group>"; };
+		0F46114018C19887003A8AF7 /* SLevel1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SLevel1ViewController.m; sourceTree = "<group>"; };
 		0F46114218C19887003A8AF7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0F46114818C19887003A8AF7 /* ScrollMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F46114918C19887003A8AF7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -80,6 +84,8 @@
 		0F55719E18C31AEB00CA7A09 /* panel_yellow_a2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panel_yellow_a2.png; sourceTree = "<group>"; };
 		0F5571A218C3228400CA7A09 /* panel_slider_beagle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panel_slider_beagle.png; sourceTree = "<group>"; };
 		0F5571A318C3228400CA7A09 /* panel_slider_dino.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = panel_slider_dino.png; sourceTree = "<group>"; };
+		0F5F839818C5592C004A6685 /* SViewControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SViewControllerBase.h; sourceTree = "<group>"; };
+		0F5F839918C5592C004A6685 /* SViewControllerBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SViewControllerBase.m; sourceTree = "<group>"; };
 		0F64EEBE18C401E200456A10 /* icon_info_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_info_100.png; sourceTree = "<group>"; };
 		0F64EEBF18C401E200456A10 /* icon_misc_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_misc_100.png; sourceTree = "<group>"; };
 		0F64EEC018C401E200456A10 /* icon_oops_100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_oops_100.png; sourceTree = "<group>"; };
@@ -146,8 +152,12 @@
 		0F46113018C19887003A8AF7 /* ScrollMenu */ = {
 			isa = PBXGroup;
 			children = (
-				0F46113F18C19887003A8AF7 /* SViewController.h */,
-				0F46114018C19887003A8AF7 /* SViewController.m */,
+				0F5F839818C5592C004A6685 /* SViewControllerBase.h */,
+				0F5F839918C5592C004A6685 /* SViewControllerBase.m */,
+				0F46113F18C19887003A8AF7 /* SLevel1ViewController.h */,
+				0F46114018C19887003A8AF7 /* SLevel1ViewController.m */,
+				0F38049018C574B200264FE5 /* SLevel2ViewController.h */,
+				0F38049118C574B200264FE5 /* SLevel2ViewController.m */,
 				0F64EEC818C4132D00456A10 /* SMenuTableView.h */,
 				0F64EEC918C4132D00456A10 /* SMenuTableView.m */,
 				0F55718C18C30C8700CA7A09 /* SMenuCellView.h */,
@@ -325,8 +335,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F46113B18C19887003A8AF7 /* SAppDelegate.m in Sources */,
+				0F5F839A18C5592C004A6685 /* SViewControllerBase.m in Sources */,
 				0F55718E18C30C8700CA7A09 /* SMenuCellView.m in Sources */,
-				0F46114118C19887003A8AF7 /* SViewController.m in Sources */,
+				0F38049218C574B200264FE5 /* SLevel2ViewController.m in Sources */,
+				0F46114118C19887003A8AF7 /* SLevel1ViewController.m in Sources */,
 				0F64EECA18C4132D00456A10 /* SMenuTableView.m in Sources */,
 				0F46113718C19887003A8AF7 /* main.m in Sources */,
 			);

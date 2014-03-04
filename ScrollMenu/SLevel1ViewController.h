@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SViewControllerBase.h"
 
-@interface SViewController : UIViewController
+@interface SLevel1ViewController : SViewControllerBase
 
 @end

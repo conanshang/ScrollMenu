@@ -10,6 +10,8 @@
 
 @interface SMenuCellView : UIView
 
+- (id)initWithFrame:(CGRect)frame AndLevel:(NSInteger)level;
+
 @property (nonatomic, retain) UIImageView *backgroundImageView;
 @property (nonatomic, retain) UIImageView *iconImageView;
 @property (nonatomic, retain) UILabel *titleLabel;
