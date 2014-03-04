@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMenuCellView.h"
 
 @interface SViewControllerBase : UIViewController
 
 - (NSInteger)getTheIndexOfCellInMiddle:(UITableView *)tableView;
 - (void)setThePreviewImageWithMiddleCellIndexInTableView:(UITableView *)tableView forImageView:(UIImageView *)imageView;
 - (NSArray *)retrieveCellContentArrayAtIndexPath:(NSIndexPath *)indexPath;
+- (void)setTheAlphaOfNonSelectedRowsInTableView:(UITableView *)tableView forSelectedRow:(NSIndexPath *)indexPath;
+- (void)SetTheAlphaBackForTableView:(UITableView *)tableView;
 
 //Variables
 @property NSInteger currentMiddleCell;

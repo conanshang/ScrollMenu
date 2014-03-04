@@ -32,11 +32,19 @@
     CGRect iconImageViewRect;
     CGRect titleLabelRect;
     
+    //Set the position of the content in cell here.
     switch (level) {
         case 1:
             backgroundImageViewRect = CGRectMake(0, 0, 340, 66);
             iconImageViewRect = CGRectMake(19, 19, 27, 27);
             titleLabelRect = CGRectMake(137, 21, 150, 22);
+            
+            break;
+            
+        case 2:
+            backgroundImageViewRect = CGRectMake(0, 0, 267, 66);
+            iconImageViewRect = CGRectMake(19, 19, 27, 27);
+            titleLabelRect = CGRectMake(123, 21, 120, 22);
             
             break;
             

@@ -9,6 +9,8 @@
 #import "SViewControllerBase.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define CUSTOM_CELL_TAG 101
+
 @interface SViewControllerBase ()
 
 @end
@@ -27,7 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
 }
 
 - (NSInteger)getTheIndexOfCellInMiddle:(UITableView *)tableView{
@@ -144,6 +146,32 @@
     UIImage *cellIconImage = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:iconImageName ofType:@"png"]];
     
     return [NSArray arrayWithObjects:cellBackgroundImage, cellIconImage, titleName, nil];
+}
+
+//For transition to next level.
+- (void)setTheAlphaOfNonSelectedRowsInTableView:(UITableView *)tableView forSelectedRow:(NSIndexPath *)indexPath{
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    SMenuCellView *customSelectedCell = (SMenuCellView *)[selectedCell.contentView viewWithTag:CUSTOM_CELL_TAG];
+
+    NSArray *visibleCells = [tableView visibleCells];
+    for(int i = 0; i < [visibleCells count]; i++){
+        UITableViewCell *cell = [visibleCells objectAtIndex:i];
+        SMenuCellView *customCell = (SMenuCellView *)[cell.contentView viewWithTag:CUSTOM_CELL_TAG];
+        
+        customCell.iconImageView.alpha = 0.3;
+    }
+    
+    customSelectedCell.iconImageView.alpha = 1.0;
+}
+
+- (void)SetTheAlphaBackForTableView:(UITableView *)tableView{
+    NSArray *visibleCells = [tableView visibleCells];
+    for(int i = 0; i < [visibleCells count]; i++){
+        UITableViewCell *cell = [visibleCells objectAtIndex:i];
+        SMenuCellView *customCell = (SMenuCellView *)[cell.contentView viewWithTag:CUSTOM_CELL_TAG];
+        
+        customCell.iconImageView.alpha = 1.0;
+    }
 }
 
 

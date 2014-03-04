@@ -7,17 +7,20 @@
 //
 
 #import "SLevel1ViewController.h"
-#import "SMenuCellView.h"
+#import "SLevel2ViewController.h"
+#import "SCustomLevelChangeTransition.h"
 
 #define CUSTOM_CELL_TAG 101
 
-@interface SLevel1ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SLevel1ViewController () <UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *levelOneTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *sliderIndicatorImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *previewImageView;
+@property (weak, nonatomic) IBOutlet UIView *coverIconsView;
 
 //Variables
+@property BOOL ifUseAlphaIcon;
 
 @end
 
@@ -57,6 +60,25 @@
     [self setThePreviewImageWithMiddleCellIndexInTableView:self.levelOneTableView forImageView:self.previewImageView];
 }
 
+    //To next level.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if((indexPath.row % 5) == 0){ //For demo, only item one can be selected.
+        [self setTheAlphaOfNonSelectedRowsInTableView:self.levelOneTableView forSelectedRow:indexPath];
+        [self.coverIconsView setHidden:NO];
+        
+        SLevel2ViewController *level2ViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"level2TableViewController"];
+        level2ViewController.modalPresentationStyle = UIModalPresentationCustom;
+        level2ViewController.transitioningDelegate = self;
+        
+        [self presentViewController:level2ViewController animated:YES completion:nil];
+    }
+}
+    //Back from upper level.
+- (IBAction)unwindFromUpperLevel:(UIStoryboardSegue *)sender{
+    [self SetTheAlphaBackForTableView:self.levelOneTableView];
+    [self.coverIconsView setHidden:YES];
+}
+
 
 //Table View data source.
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -69,8 +91,7 @@
     return 15;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"menuCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -87,25 +108,39 @@
         customCell.titleLabel.text = [cellContentArray objectAtIndex:2];
         
         [cell.contentView addSubview:customCell];
+        
+        //NSLog(@"Created");
     }
     else{
         SMenuCellView *customCell = (SMenuCellView *)[cell.contentView viewWithTag:CUSTOM_CELL_TAG];
         customCell.backgroundImageView.image = [cellContentArray objectAtIndex:0];
         customCell.iconImageView.image = [cellContentArray objectAtIndex:1];
         customCell.titleLabel.text = [cellContentArray objectAtIndex:2];
+        //customCell.iconImageView.alpha = 1.0;
     }
  
     return cell;
 }
 
+//Transition delegate.
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source{
+    
+    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
+    
+    animator.ifInAnimating = YES;
+    
+    return animator;
+}
 
-
-
-
-
-
-
-
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
+    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
+    
+    animator.ifInAnimating = NO;
+    
+    return animator;
+}
 
 
 - (void)didReceiveMemoryWarning
