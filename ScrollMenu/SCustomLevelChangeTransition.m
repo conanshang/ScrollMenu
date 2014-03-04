@@ -15,6 +15,8 @@
 }
 
 - (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext{
+    
+    
     // Grab the from and to view controllers from the context
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
@@ -46,7 +48,7 @@
         [transitionContext.containerView addSubview:toViewController.view];
         [transitionContext.containerView addSubview:fromViewController.view];
         
-        endFrame.origin.y += 568;
+        endFrame.origin.y += 214;
         
         [UIView animateWithDuration:[self transitionDuration:transitionContext] animations:^{
             toViewController.view.tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;

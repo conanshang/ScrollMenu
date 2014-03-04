@@ -48,6 +48,13 @@
             
             break;
             
+        case 3:
+            backgroundImageViewRect = CGRectMake(0, 0, 195, 66);
+            iconImageViewRect = CGRectMake(19, 19, 27, 27);
+            titleLabelRect = CGRectMake(90, 21, 100, 22);
+            
+            break;
+            
         default:
             break;
     }

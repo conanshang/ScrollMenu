@@ -6,8 +6,9 @@
 //  Copyright (c) 2014 Zihang Wang. All rights reserved.
 //
 
-#import "SViewControllerBase.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SViewControllerBase.h"
+#import "SCustomLevelChangeTransition.h"
 
 #define CUSTOM_CELL_TAG 101
 
@@ -172,6 +173,26 @@
         
         customCell.iconImageView.alpha = 1.0;
     }
+}
+
+//Transition delegate.
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source{
+    
+    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
+
+    animator.ifInAnimating = YES;
+    
+    return animator;
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
+    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
+
+    animator.ifInAnimating = NO;
+    
+    return animator;
 }
 
 

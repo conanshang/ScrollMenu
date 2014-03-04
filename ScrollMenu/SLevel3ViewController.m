@@ -1,78 +1,58 @@
 //
-//  SLevel2ViewController.m
+//  SLevel3ViewController.m
 //  ScrollMenu
 //
-//  Created by conans on 3/3/14.
+//  Created by conans on 3/4/14.
 //  Copyright (c) 2014 Zihang Wang. All rights reserved.
 //
 
-#import "SLevel2ViewController.h"
 #import "SLevel3ViewController.h"
+#import "SCustomLevelChangeTransition.h"
 
 #define CUSTOM_CELL_TAG 101
 
-@interface SLevel2ViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface SLevel3ViewController () <UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *levelTwoTableView;
+@property (weak, nonatomic) IBOutlet UITableView *levelThreeTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *sliderIndicatorImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *previewImageView;
-@property (weak, nonatomic) IBOutlet UIView *coverIconsView;
 
 @end
 
-@implementation SLevel2ViewController
+@implementation SLevel3ViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
     //Initialize
-    self.levelTwoTableView.delegate = self;
-    self.levelTwoTableView.dataSource = self;
+    self.levelThreeTableView.delegate = self;
+    self.levelThreeTableView.dataSource = self;
     
     //The slide indicator.
     self.sliderIndicatorImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"panel_slider" ofType:@"png"]];
     //Initial the preview image.
-    self.previewImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"panel_slider_dino" ofType:@"png"]];
+    self.previewImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"eye_22" ofType:@"png"]];
     
     //Setup the data.
     [self setupTheContentArraysFoThisLevelTableView];
+    
 }
 
 - (void)setupTheContentArraysFoThisLevelTableView{ //The array variables are in the parent's class.
-    self.previewImageNameArray = [NSArray arrayWithObjects:@"panel_slider_beagle", @"panel_slider_dino", @"panel_slider_beagle", @"panel_slider_dino", @"panel_slider_beagle", nil];
+    self.previewImageNameArray = [NSArray arrayWithObjects:@"eye_09", @"eye_10", @"eye_22", @"eye_12", @"eye_19", nil];
     
-    NSArray *itemOneArray = [NSArray arrayWithObjects:@"panel_orange_b0", @"icon_default_100", @"Upcoming", nil];
-    NSArray *itemTwoArray = [NSArray arrayWithObjects:@"panel_yellow_b1", @"icon_pug_100", @"Pug", nil];
-    NSArray *itemThreeArray = [NSArray arrayWithObjects:@"panel_yellow_b2", @"icon_beagle_100", @"Beagle", nil];
-    NSArray *itemFourArray = [NSArray arrayWithObjects:@"panel_yellow_b1", @"icon_que_100", @"Corgi", nil];
-    NSArray *itemFiveArray = [NSArray arrayWithObjects:@"panel_orange_b0", @"icon_default_100", @"Upcoming", nil];
+    NSArray *itemOneArray = [NSArray arrayWithObjects:@"panel_yellow_c1", @"icon_halloween", @"Halloween", nil];
+    NSArray *itemTwoArray = [NSArray arrayWithObjects:@"panel_yellow_c1", @"icon_xmas", @"Xmas", nil];
+    NSArray *itemThreeArray = [NSArray arrayWithObjects:@"panel_yellow_c2", @"icon_default_100", @"Default", nil];
+    NSArray *itemFourArray = [NSArray arrayWithObjects:@"panel_orange_c0", @"icon_special", @"SFX", nil];
+    NSArray *itemFiveArray = [NSArray arrayWithObjects:@"panel_yellow_c0", @"icon_thxgiving", @"Thxgiving", nil];
     self.scrollMenuContentArray = [NSArray arrayWithObjects:itemOneArray, itemTwoArray, itemThreeArray, itemFourArray, itemFiveArray, nil];
 }
 
 //Table View Scroll View delegate.
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [self setThePreviewImageWithMiddleCellIndexInTableView:self.levelTwoTableView forImageView:self.previewImageView];
-}
-
-//To next level.
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if((indexPath.row % 5) == 2){ //For demo, only item one can be selected.
-        [self setTheAlphaOfNonSelectedRowsInTableView:self.levelTwoTableView forSelectedRow:indexPath];
-        [self.coverIconsView setHidden:NO];
-        
-        SLevel3ViewController *level3ViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"level3TableViewController"];
-        level3ViewController.modalPresentationStyle = UIModalPresentationCustom;
-        level3ViewController.transitioningDelegate = (id)self;
-        
-        [self presentViewController:level3ViewController animated:YES completion:nil];
-    }
-}
-
-    //Back from upper level.
-- (IBAction)unwindFromThirdLevel:(UIStoryboardSegue *)sender{
-    [self SetTheAlphaBackForTableView:self.levelTwoTableView];
-    [self.coverIconsView setHidden:YES];
+    [self setThePreviewImageWithMiddleCellIndexInTableView:self.levelThreeTableView forImageView:self.previewImageView];
 }
 
 
@@ -97,34 +77,46 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
         //Setup the custom cell view.
-        SMenuCellView *customCell = [[SMenuCellView alloc] initWithFrame:CGRectMake(0, 0, 267, 65) AndLevel:2];
+        SMenuCellView *customCell = [[SMenuCellView alloc] initWithFrame:CGRectMake(0, 0, 195, 65) AndLevel:3];
         customCell.tag = CUSTOM_CELL_TAG;
         customCell.backgroundImageView.image = [cellContentArray objectAtIndex:0];
         customCell.iconImageView.image = [cellContentArray objectAtIndex:1];
         customCell.titleLabel.text = [cellContentArray objectAtIndex:2];
         
         [cell.contentView addSubview:customCell];
+        
+        //NSLog(@"Created");
     }
     else{
         SMenuCellView *customCell = (SMenuCellView *)[cell.contentView viewWithTag:CUSTOM_CELL_TAG];
         customCell.backgroundImageView.image = [cellContentArray objectAtIndex:0];
         customCell.iconImageView.image = [cellContentArray objectAtIndex:1];
         customCell.titleLabel.text = [cellContentArray objectAtIndex:2];
+        //customCell.iconImageView.alpha = 1.0;
     }
     
     return cell;
 }
 
+//Transition delegate.
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
+                                                                  presentingController:(UIViewController *)presenting
+                                                                      sourceController:(UIViewController *)source{
+    
+    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
+    
+    animator.ifInAnimating = YES;
+    
+    return animator;
+}
 
-
-
-
-
-
-
-
-
-
+- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
+    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
+    
+    animator.ifInAnimating = NO;
+    
+    return animator;
+}
 
 - (void)didReceiveMemoryWarning
 {

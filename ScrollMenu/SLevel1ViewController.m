@@ -8,11 +8,10 @@
 
 #import "SLevel1ViewController.h"
 #import "SLevel2ViewController.h"
-#import "SCustomLevelChangeTransition.h"
 
 #define CUSTOM_CELL_TAG 101
 
-@interface SLevel1ViewController () <UITableViewDelegate, UITableViewDataSource, UIViewControllerTransitioningDelegate>
+@interface SLevel1ViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *levelOneTableView;
 @property (weak, nonatomic) IBOutlet UIImageView *sliderIndicatorImageView;
@@ -20,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIView *coverIconsView;
 
 //Variables
-@property BOOL ifUseAlphaIcon;
 
 @end
 
@@ -68,13 +66,13 @@
         
         SLevel2ViewController *level2ViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"level2TableViewController"];
         level2ViewController.modalPresentationStyle = UIModalPresentationCustom;
-        level2ViewController.transitioningDelegate = self;
+        level2ViewController.transitioningDelegate = (id)self;
         
         [self presentViewController:level2ViewController animated:YES completion:nil];
     }
 }
     //Back from upper level.
-- (IBAction)unwindFromUpperLevel:(UIStoryboardSegue *)sender{
+- (IBAction)unwindFromSecondLevel:(UIStoryboardSegue *)sender{
     [self SetTheAlphaBackForTableView:self.levelOneTableView];
     [self.coverIconsView setHidden:YES];
 }
@@ -120,33 +118,6 @@
     }
  
     return cell;
-}
-
-//Transition delegate.
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForPresentedController:(UIViewController *)presented
-                                                                  presentingController:(UIViewController *)presenting
-                                                                      sourceController:(UIViewController *)source{
-    
-    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
-    
-    animator.ifInAnimating = YES;
-    
-    return animator;
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)animationControllerForDismissedController:(UIViewController *)dismissed{
-    SCustomLevelChangeTransition *animator = [SCustomLevelChangeTransition new];
-    
-    animator.ifInAnimating = NO;
-    
-    return animator;
-}
-
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
